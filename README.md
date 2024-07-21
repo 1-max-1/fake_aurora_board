@@ -32,10 +32,10 @@ You can use this project to simulate one, then try it out on the actual thing on
 Or maybe you just want to have a look through this project to get an idea of how the kilter/aurora board protocol functions.
 
 # Installation and usage
-This project uses [Processing](https://processing.org/) and [Platform IO](https://platformio.org/platformio-ide), so get those if you haven't already.
-1. Upload the `fakeAuroraBoard_esp32` project to the esp32. Other board models may work, but I have not tested any.
+This project uses [Processing](https://processing.org/) and [Arduino IDE](https://www.arduino.cc/en/software/), so get those if you haven't already.
+1. Upload the `fakeAuroraBoard_arduino` project to the Arduino.
 2. Run the processing project (`fakeAuroraBoard_processing`).
-3. Follow the prompts on the processing window to connect it to the ESP32.
+3. Follow the prompts on the processing window to connect it to the Arduino.
 4. Enjoy! Everything should now function as a regular kilter board - you can connect to it with the official app or your own software.
 
 # Changing the board name
@@ -52,7 +52,7 @@ For example, the following are all valid board names (except for the fact that t
 
 Each of these will show up in the app as `mykilterboard`.
 
-If you want to change the name and/or api level of the fake board, look for `#define API_LEVEL` and `#define DISPLAY_NAME` in `main.cpp` in the esp32 project.
+If you want to change the name and/or api level of the fake board, look for `#define API_LEVEL` and `#define DISPLAY_NAME` in `fakeAuroraBoard_arduino.ino` in the arduino project.
 
 # Using different kilter board models
 A kilter board maps an (x, y) coordinate for a hold to a specific unique 'position' number, and each of the many different kilter board models seems to have their own set of position numbers. The `LEDPositionParser` class in `fakeAuroraBoard_processing` handles the mapping of position numbers to coordinates. It does this by querying the required information from the sqlite database in the `data` folder, which is the actual database I've extracted from the official kilter board app. This project is set up for a specific model and layout, so if you want to use a different one you may need to poke around in the database for the required ID's and then modify the SQL query accordingly in `LEDPositionParser`. Additionally, if the model you want to use is not the same size as the model in this project (17x19), then you will also need to modify the window size and draw loop to draw more squares.
