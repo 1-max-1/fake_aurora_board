@@ -1,30 +1,32 @@
 # Fake Kilter Board
 A fork of [1-max-1/fake_kilter_board](https://github.com/1-max-1/fake_kilter_board) ESP32 program and a processing desktop application working together to simulate a [Kilter Board](https://settercloset.com/pages/the-kilter-board). 
 
-# Difference
-Uses [ArduinoBLE](https://www.arduino.cc/reference/en/libraries/arduinoble/), this library is compatible with the **samd, megaavr, mbed, apollo3, mbed_nano, mbed_portenta, mbed_nicla, esp32, mbed_giga, renesas, renesas_portenta, mbed_opta, renesas_uno** architectures so you should be able to use it on the following Arduino boards:
+# Differences
+- A Fullride (12 x 12 without kickboard) Layout
 
-- Arduino MKR FOX 1200
-- Arduino MKR GSM 1400
-- Arduino MKR NB 1500
-- Arduino MKR VIDOR 4000
-- Arduino MKR WAN 1300 (LoRa connectivity)
-- Arduino MKR WAN 1310
-- Arduino MKR WiFi 1010
-- Arduino MKR ZERO (I2S bus & SD for sound, music & digital audio data)
-- Arduino MKR1000 WIFI
-- Arduino Nano 33 BLE
-- Arduino Nano 33 IoT
-- Arduino Nano Every
-- Arduino Uno WiFi REV2
-- Arduino Zero
-- Portenta H7
-- Arduino GIGA R1 WiFi
-- Arduino UNO R4 Minima
-- Arduino UNO R4 WiFi
-- Arduino Nano RP2040 Connect
+- Uses [ArduinoBLE](https://www.arduino.cc/reference/en/libraries/arduinoble/), this library is compatible with the **samd, megaavr, mbed, apollo3, mbed_nano, mbed_portenta, mbed_nicla, esp32, mbed_giga, renesas, renesas_portenta, mbed_opta, renesas_uno** architectures so you should be able to use it on the following Arduino boards:
 
-![demo](https://user-images.githubusercontent.com/44454544/201458279-b4a2dc50-2cda-48c4-ba8f-5ad77c7fb8c0.png)
+    - Arduino MKR FOX 1200
+    - Arduino MKR GSM 1400
+    - Arduino MKR NB 1500
+    - Arduino MKR VIDOR 4000
+    - Arduino MKR WAN 1300 (LoRa connectivity)
+    - Arduino MKR WAN 1310
+    - Arduino MKR WiFi 1010
+    - Arduino MKR ZERO (I2S bus & SD for sound, music & digital audio data)
+    - Arduino MKR1000 WIFI
+    - Arduino Nano 33 BLE
+    - Arduino Nano 33 IoT
+    - Arduino Nano Every
+    - Arduino Uno WiFi REV2
+    - Arduino Zero
+    - Portenta H7
+    - Arduino GIGA R1 WiFi
+    - Arduino UNO R4 Minima
+    - Arduino UNO R4 WiFi
+    - Arduino Nano RP2040 Connect
+
+![Kilterboard - Processing](https://github.com/user-attachments/assets/0ad4735a-2ad1-446e-97c6-692b6ae0ccf6)
 
 # Why would you want this
 Maybe you're creating a project that interfaces with a kilter board, but you don't have one handy, or not one easily accessible during development (as was my case).
