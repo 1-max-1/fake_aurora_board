@@ -4,7 +4,7 @@ CommsHandler comms = new CommsHandler();
 long timeOfLastPortCheck = 0;
 
 void setup() {
-  size(700, 780);
+  size(700, 785);
   decoder = new DataDecoder(this);
   drawCOMPorts();
 }
@@ -78,11 +78,26 @@ void drawEmptyBackground() {
   fill(0);
   text("Press 'q' to go back to COM port menu", 5, 13);
   
-  fill(255, 255, 255);
+  fill(240, 240, 240);
+  // Add bold holds
   for (int x = 0; x < 17; x++) {
     for (int y = 0; y < 19; y++) {
       square(x * 40 + 15, y * 40 + 25, 25);
     }
+  }
+  // Add screw holds
+  for (int x = 0; x < 9; x++) {
+    for (int y = 0; y < 8; y++) {
+      square(x * 80, y * 80 + 130, 15);
+    }
+  }
+  for (int x = 0; x < 9; x++) {
+    for (int y = 0; y < 7; y++) {
+      square(x * 80 + 40, y * 80 + 170, 15);
+    }
+  }
+  for (int x = 0; x < 18; x++) {
+      square(x * 40, 1 * 770, 15);
   }
 }
 

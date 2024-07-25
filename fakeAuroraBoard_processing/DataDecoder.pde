@@ -83,10 +83,16 @@ class DataDecoder {
       for(int i = 5; i < currentPacketLength - 1; i += 2) {
         int position = currentPacket.get(i) + ((currentPacket.get(i + 1) & 0b11) << 8);
         int clr[] = scaledColorToFullColorV2(currentPacket.get(i + 1));
-        int coords[] = positionParser.getCoordsFromPosition(position);
-        if (coords == null) continue; // Skip this hold if invalid
-        Hold h = new Hold(coords[0], coords[1], clr[0], clr[1], clr[2]);
-        currentPlacements.add(h);
+        int boldCoords[] = positionParser.getBoldCoordsFromPosition(position);
+        if (boldCoords != null) {
+            Hold h = new Hold(boldCoords[0], boldCoords[1], clr[0], clr[1], clr[2], true);
+            currentPlacements.add(h);
+        }
+        int screwCoords[] = positionParser.getScrewCoordsFromPosition(position);
+        if (screwCoords != null) {
+            Hold h = new Hold(screwCoords[0], screwCoords[1], clr[0], clr[1], clr[2], false);
+            currentPlacements.add(h);
+        }
       }
     }
     else {
@@ -94,10 +100,16 @@ class DataDecoder {
       for(int i = 5; i < currentPacketLength - 1; i += 3) {
         int position = (currentPacket.get(i + 1) << 8) + currentPacket.get(i);
         int clr[] = scaledColorToFullColorV3(currentPacket.get(i + 2));
-        int coords[] = positionParser.getCoordsFromPosition(position);
-        if (coords == null) continue; // Skip this hold if invalid
-        Hold h = new Hold(coords[0], coords[1], clr[0], clr[1], clr[2]);
-        currentPlacements.add(h);
+        int boldCoords[] = positionParser.getBoldCoordsFromPosition(position);
+        if (boldCoords != null) {
+            Hold h = new Hold(boldCoords[0], boldCoords[1], clr[0], clr[1], clr[2], true);
+            currentPlacements.add(h);
+        }
+        int screwCoords[] = positionParser.getScrewCoordsFromPosition(position);
+        if (screwCoords != null) {
+            Hold h = new Hold(screwCoords[0], screwCoords[1], clr[0], clr[1], clr[2], false);
+            currentPlacements.add(h);
+        }
       }
     }
     
