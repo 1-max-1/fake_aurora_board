@@ -2,7 +2,7 @@
 A fork of [1-max-1/fake_kilter_board](https://github.com/1-max-1/fake_kilter_board) ESP32 program and a processing desktop application working together to simulate a [Kilter Board](https://settercloset.com/pages/the-kilter-board). 
 
 # Differences
-- A Fullride (12 x 12 without kickboard) Layout
+- A Fullride (12 x 12 with kickboard) Kilterboard Layout
 
 - Uses [ArduinoBLE](https://www.arduino.cc/reference/en/libraries/arduinoble/), this library is compatible with the **samd, megaavr, mbed, apollo3, mbed_nano, mbed_portenta, mbed_nicla, esp32, mbed_giga, renesas, renesas_portenta, mbed_opta, renesas_uno** architectures so you should be able to use it on the following Arduino boards:
 
