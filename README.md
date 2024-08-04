@@ -26,7 +26,7 @@ A fork of [1-max-1/fake_kilter_board](https://github.com/1-max-1/fake_kilter_boa
     - Arduino UNO R4 WiFi
     - Arduino Nano RP2040 Connect
 
-![Kilterboard - Processing](https://github.com/user-attachments/assets/0ad4735a-2ad1-446e-97c6-692b6ae0ccf6)
+![Kilterboard - Processing](https://github.com/user-attachments/assets/dc654efe-3a83-4a7b-b263-05f4af7846b4)
 
 # Why would you want this
 Maybe you're creating a project that interfaces with a kilter board, but you don't have one handy, or not one easily accessible during development (as was my case).
