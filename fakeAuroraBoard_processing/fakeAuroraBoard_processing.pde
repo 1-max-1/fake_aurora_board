@@ -1,12 +1,17 @@
 DataDecoder decoder;
 CommsHandler comms = new CommsHandler();
 
+PImage bolds;
+PImage screws;
+
 long timeOfLastPortCheck = 0;
 
 void setup() {
   size(700, 785);
   decoder = new DataDecoder(this);
   drawCOMPorts();
+  bolds = loadImage("45-1.png");
+  screws = loadImage("46-1.png");
 }
 
 // Draws all of the active COM ports on the screen with a number mapped to each of them.
@@ -78,7 +83,12 @@ void drawEmptyBackground() {
   fill(0);
   text("Press 'q' to go back to COM port menu", 5, 13);
   
-  fill(240, 240, 240);
+  image(bolds, -15, 15, width + 25, height);
+  image(screws, -15, 15, width + 25, height);
+  
+  stroke(0, 63);
+  noFill();
+  
   // Add bold holds
   for (int x = 0; x < 17; x++) {
     for (int y = 0; y < 19; y++) {

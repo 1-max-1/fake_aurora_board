@@ -16,7 +16,10 @@ class Hold {
   }
 
   public void Draw() {
-    fill(r, g, b);
+    stroke(r, g, b);
+    // 25% opacity.
+    fill(r, g, b, 63); 
+    
     if (isBold) {
       square(x * 40 + 15, y * 40 + 25, 25);
     } else {
