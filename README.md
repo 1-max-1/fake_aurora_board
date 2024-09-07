@@ -35,10 +35,10 @@ Or maybe you just want to have a look through this project to get an idea of how
 
 # Installation and usage
 This project uses [Processing](https://processing.org/) and [Arduino IDE](https://www.arduino.cc/en/software/), so get those if you haven't already.
-1. Upload the `fakeAuroraBoard_arduino` project to the Arduino.
-2. Run the processing project (`fakeAuroraBoard_processing`).
-3. Follow the prompts on the processing window to connect it to the Arduino.
-4. Enjoy! Everything should now function as a regular kilter board - you can connect to it with the official app or your own software.
+1. Upload the `fakeAuroraBoard_arduino` project to the Arduino. Install the [ArduinoBLE](https://github.com/arduino-libraries/ArduinoBLE) library via **Tools > Manage Libraries...**.
+2. For the Processing project (`fakeAuroraBoard_processing`), install the [BezierSQLib](https://github.com/fjenett/sql-library-processing) library via **Sketch > Import Library... > Manage Libraries...**.
+3. Follow the prompts on the Processing window to connect it to the Arduino.
+4. Enjoy! Everything should now function as a regular Kilter Board - you can connect to it with the official app or your own software.
 
 # Changing the board name
 The name of aurora boards are in the following format:
