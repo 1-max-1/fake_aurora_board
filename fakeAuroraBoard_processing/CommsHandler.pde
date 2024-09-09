@@ -45,7 +45,7 @@ public class CommsHandler {
       myPort = new Serial(parent, port, 115200);
       // DTR and RTS disabled is needed otherwise the ESP32 seems to stop when the serial port is closed.
       // It's either crashing or going into boot mode, dont really know and dont really care. This works so we're keeping it.
-      myPort.port.setParams(BAUD_RATE, 8, SerialPort.STOPBITS_1, SerialPort.PARITY_NONE, false, false);
+      // myPort.port.setParams(BAUD_RATE, 8, SerialPort.STOPBITS_1, SerialPort.PARITY_NONE, false, false);
       myPort.clear();
       
       currentState = BoardState.BOOTING;

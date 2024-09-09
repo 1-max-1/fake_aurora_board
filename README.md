@@ -1,7 +1,34 @@
 # Fake Kilter Board
-An ESP32 program and a processing desktop application working together to simulate a [Kilter Board](https://settercloset.com/pages/the-kilter-board).
+A fork of [1-max-1/fake_kilter_board](https://github.com/1-max-1/fake_kilter_board) ESP32 program to work with Arduino BLE and a Processing or [Web](https://grip-connect-kilter-board.vercel.app/?route=p1083r15p1117r15p1164r12p1185r12p1233r13p1282r13p1303r13p1372r13p1392r14p1505r15) (Chrome/Edge/Opera) desktop application working together to simulate a [Kilter Board](https://settercloset.com/pages/the-kilter-board). 
 
-![demo](https://user-images.githubusercontent.com/44454544/201458279-b4a2dc50-2cda-48c4-ba8f-5ad77c7fb8c0.png)
+# Differences
+- Processing: A Fullride (12 x 12 with kickboard) Kilterboard Layout
+
+- A [web](https://grip-connect-kilter-board.vercel.app/?route=p1083r15p1117r15p1164r12p1185r12p1233r13p1282r13p1303r13p1372r13p1392r14p1505r15) application. **No Processing required**.
+
+- Uses [ArduinoBLE](https://www.arduino.cc/reference/en/libraries/arduinoble/), this library is compatible with the **samd, megaavr, mbed, apollo3, mbed_nano, mbed_portenta, mbed_nicla, esp32, mbed_giga, renesas, renesas_portenta, mbed_opta, renesas_uno** architectures so you should be able to use it on the following Arduino boards:
+
+    - Arduino MKR FOX 1200
+    - Arduino MKR GSM 1400
+    - Arduino MKR NB 1500
+    - Arduino MKR VIDOR 4000
+    - Arduino MKR WAN 1300 (LoRa connectivity)
+    - Arduino MKR WAN 1310
+    - Arduino MKR WiFi 1010
+    - Arduino MKR ZERO (I2S bus & SD for sound, music & digital audio data)
+    - Arduino MKR1000 WIFI
+    - Arduino Nano 33 BLE
+    - Arduino Nano 33 IoT
+    - Arduino Nano Every
+    - Arduino Uno WiFi REV2
+    - Arduino Zero
+    - Portenta H7
+    - Arduino GIGA R1 WiFi
+    - Arduino UNO R4 Minima
+    - Arduino UNO R4 WiFi
+    - Arduino Nano RP2040 Connect
+
+![Kilterboard - Processing](https://github.com/user-attachments/assets/dc654efe-3a83-4a7b-b263-05f4af7846b4)
 
 # Why would you want this
 Maybe you're creating a project that interfaces with a kilter board, but you don't have one handy, or not one easily accessible during development (as was my case).
@@ -9,11 +36,12 @@ You can use this project to simulate one, then try it out on the actual thing on
 Or maybe you just want to have a look through this project to get an idea of how the kilter/aurora board protocol functions.
 
 # Installation and usage
-This project uses [Processing](https://processing.org/) and [Platform IO](https://platformio.org/platformio-ide), so get those if you haven't already.
-1. Upload the `fakeAuroraBoard_esp32` project to the esp32. Other board models may work, but I have not tested any.
-2. Run the processing project (`fakeAuroraBoard_processing`).
-3. Follow the prompts on the processing window to connect it to the ESP32.
-4. Enjoy! Everything should now function as a regular kilter board - you can connect to it with the official app or your own software.
+This project uses [Processing](https://processing.org/) and [Arduino IDE](https://www.arduino.cc/en/software/), so get those if you haven't already.
+1. Upload the `fakeAuroraBoard_arduino` project to the Arduino. Install the [ArduinoBLE](https://github.com/arduino-libraries/ArduinoBLE) library via **Tools > Manage Libraries...**.
+2. Connect to one of the desktop applications:
+    - For the Processing project (`fakeAuroraBoard_processing`), install the [BezierSQLib](https://github.com/fjenett/sql-library-processing) library via **Sketch > Import Library... > Manage Libraries...**. Click 'Run' and follow the prompts on the Processing window to connect it to the Arduino.
+    - Or just connect to the [web](https://grip-connect-kilter-board.vercel.app/?route=p1083r15p1117r15p1164r12p1185r12p1233r13p1282r13p1303r13p1372r13p1392r14p1505r15) application.
+5. Enjoy! Everything should now function as a regular Kilter Board - you can connect to it with the official app or your own software.
 
 # Changing the board name
 The name of aurora boards are in the following format:
@@ -29,7 +57,7 @@ For example, the following are all valid board names (except for the fact that t
 
 Each of these will show up in the app as `mykilterboard`.
 
-If you want to change the name and/or api level of the fake board, look for `#define API_LEVEL` and `#define DISPLAY_NAME` in `main.cpp` in the esp32 project.
+If you want to change the name and/or api level of the fake board, look for `#define API_LEVEL` and `#define DISPLAY_NAME` in `fakeAuroraBoard_arduino.ino` in the arduino project.
 
 # Using different kilter board models
 A kilter board maps an (x, y) coordinate for a hold to a specific unique 'position' number, and each of the many different kilter board models seems to have their own set of position numbers. The `LEDPositionParser` class in `fakeAuroraBoard_processing` handles the mapping of position numbers to coordinates. It does this by querying the required information from the sqlite database in the `data` folder, which is the actual database I've extracted from the official kilter board app. This project is set up for a specific model and layout, so if you want to use a different one you may need to poke around in the database for the required ID's and then modify the SQL query accordingly in `LEDPositionParser`. Additionally, if the model you want to use is not the same size as the model in this project (17x19), then you will also need to modify the window size and draw loop to draw more squares.
