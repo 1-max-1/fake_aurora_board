@@ -1,8 +1,10 @@
 # Fake Kilter Board
-A fork of [1-max-1/fake_kilter_board](https://github.com/1-max-1/fake_kilter_board) ESP32 program and a processing desktop application working together to simulate a [Kilter Board](https://settercloset.com/pages/the-kilter-board). 
+A fork of [1-max-1/fake_kilter_board](https://github.com/1-max-1/fake_kilter_board) ESP32 program to work with Arduino BLE and a Processing or [Web](https://grip-connect-kilter-board.vercel.app/?route=p1083r15p1117r15p1164r12p1185r12p1233r13p1282r13p1303r13p1372r13p1392r14p1505r15) (Chrome/Edge/Opera) desktop application working together to simulate a [Kilter Board](https://settercloset.com/pages/the-kilter-board). 
 
 # Differences
-- A Fullride (12 x 12 with kickboard) Kilterboard Layout
+- Processing: A Fullride (12 x 12 with kickboard) Kilterboard Layout
+
+- A [web](https://grip-connect-kilter-board.vercel.app/?route=p1083r15p1117r15p1164r12p1185r12p1233r13p1282r13p1303r13p1372r13p1392r14p1505r15) application. **No Processing required**.
 
 - Uses [ArduinoBLE](https://www.arduino.cc/reference/en/libraries/arduinoble/), this library is compatible with the **samd, megaavr, mbed, apollo3, mbed_nano, mbed_portenta, mbed_nicla, esp32, mbed_giga, renesas, renesas_portenta, mbed_opta, renesas_uno** architectures so you should be able to use it on the following Arduino boards:
 
@@ -36,9 +38,10 @@ Or maybe you just want to have a look through this project to get an idea of how
 # Installation and usage
 This project uses [Processing](https://processing.org/) and [Arduino IDE](https://www.arduino.cc/en/software/), so get those if you haven't already.
 1. Upload the `fakeAuroraBoard_arduino` project to the Arduino. Install the [ArduinoBLE](https://github.com/arduino-libraries/ArduinoBLE) library via **Tools > Manage Libraries...**.
-2. For the Processing project (`fakeAuroraBoard_processing`), install the [BezierSQLib](https://github.com/fjenett/sql-library-processing) library via **Sketch > Import Library... > Manage Libraries...**.
-3. Follow the prompts on the Processing window to connect it to the Arduino.
-4. Enjoy! Everything should now function as a regular Kilter Board - you can connect to it with the official app or your own software.
+2. Connect to one of the desktop applications:
+    - For the Processing project (`fakeAuroraBoard_processing`), install the [BezierSQLib](https://github.com/fjenett/sql-library-processing) library via **Sketch > Import Library... > Manage Libraries...**. Click 'Run' and follow the prompts on the Processing window to connect it to the Arduino.
+    - Or just connect to the [web](https://grip-connect-kilter-board.vercel.app/?route=p1083r15p1117r15p1164r12p1185r12p1233r13p1282r13p1303r13p1372r13p1392r14p1505r15) application.
+5. Enjoy! Everything should now function as a regular Kilter Board - you can connect to it with the official app or your own software.
 
 # Changing the board name
 The name of aurora boards are in the following format:
